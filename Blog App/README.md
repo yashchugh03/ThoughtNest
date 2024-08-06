@@ -1,7 +1,5 @@
 # NodeJs, Express, EJS & MongoDB Blog - CRUD
 
-![alt text](/readme-image.jpg?raw=true)
-
 ## You need:
 - NodeJs
 - Database (MongoDB) Free Cluster
