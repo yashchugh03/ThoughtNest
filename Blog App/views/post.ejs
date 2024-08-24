@@ -1,2 +1,13 @@
-<h1><%= data.title %></h1>
-<article class="article"><%= data.body %></article>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= locals.title %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1 class="post-title"><%= data.title %></h1>
+  <article class="post-content"><%= formattedBody %></article>
+</body>
+</html>

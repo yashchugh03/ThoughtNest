@@ -9,8 +9,8 @@ const Post = require('../models/Post');
 router.get('', async (req, res) => {
   try {
     const locals = {
-      title: "NodeJs Blog",
-      description: "Simple Blog created with NodeJs, Express & MongoDb."
+      title: "ThoughtNest",
+      description: " Blog created with NodeJs, Express & MongoDb."
     }
 
     let perPage = 10;
@@ -57,31 +57,39 @@ router.get('', async (req, res) => {
 // });
 
 
+router.get('/contact', (req, res) => {
+  res.render('contact', {
+    currentRoute: '/contact'
+  });
+});
 /**
  * GET /
  * Post :id
 */
 router.get('/post/:id', async (req, res) => {
   try {
-    let slug = req.params.id;
+    const data = await Post.findById(req.params.id);
 
-    const data = await Post.findById({ _id: slug });
+    // Format the body text to replace line breaks with <br> for spacing
+    const formattedBody = data.body
 
     const locals = {
       title: data.title,
       description: "Simple Blog created with NodeJs, Express & MongoDb.",
-    }
+    };
 
-    res.render('post', { 
+    res.render('post', {
+      formattedBody,
       locals,
       data,
-      currentRoute: `/post/${slug}`
+      currentRoute: `/post/${req.params.id}`
     });
   } catch (error) {
     console.log(error);
+    res.status(500).send('Server Error');
   }
-
 });
+
 
 
 /**
@@ -92,7 +100,7 @@ router.post('/search', async (req, res) => {
   try {
     const locals = {
       title: "Seach",
-      description: "Simple Blog created with NodeJs, Express & MongoDb."
+      description: "Blog created with NodeJs, Express & MongoDb."
     }
 
     let searchTerm = req.body.searchTerm;

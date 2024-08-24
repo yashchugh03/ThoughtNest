@@ -17,8 +17,8 @@ const authMiddleware = (req, res, next ) => {
   const token = req.cookies.token;
 
   if(!token) {
-    return res.status(401).json( { message: 'Unauthorized'} );
-  }
+    return res.send("Unauthorized");
+  } 
 
   try {
     const decoded = jwt.verify(token, jwtSecret);
@@ -27,6 +27,7 @@ const authMiddleware = (req, res, next ) => {
   } catch(error) {
     res.status(401).json( { message: 'Unauthorized'} );
   }
+
 }
 
 
@@ -38,7 +39,7 @@ router.get('/admin', async (req, res) => {
   try {
     const locals = {
       title: "Admin",
-      description: "Simple Blog created with NodeJs, Express & MongoDb."
+      description: "Blog created with NodeJs, Express & MongoDb."
     }
 
     res.render('admin/index', { locals, layout: adminLayout });
@@ -86,7 +87,7 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
   try {
     const locals = {
       title: 'Dashboard',
-      description: 'Simple Blog created with NodeJs, Express & MongoDb.'
+      description: 'Blog created with NodeJs, Express & MongoDb.'
     }
 
     const data = await Post.find();
@@ -111,7 +112,7 @@ router.get('/add-post', authMiddleware, async (req, res) => {
   try {
     const locals = {
       title: 'Add Post',
-      description: 'Simple Blog created with NodeJs, Express & MongoDb.'
+      description: ' Blog created with NodeJs, Express & MongoDb.'
     }
 
     const data = await Post.find();
@@ -191,7 +192,7 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
       updatedAt: Date.now()
     });
 
-    res.redirect(`/edit-post/${req.params.id}`);
+    res.redirect('/dashboard');
 
   } catch (error) {
     console.log(error);
@@ -200,20 +201,20 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
 });
 
 
-// router.post('/admin', async (req, res) => {
-//   try {
-//     const { username, password } = req.body;
+router.post('/admin', async (req, res) => {
+  try {
+    const { username, password } = req.body;
     
-//     if(req.body.username === 'admin' && req.body.password === 'password') {
-//       res.send('You are logged in.')
-//     } else {
-//       res.send('Wrong username or password');
-//     }
+    if(req.body.username === 'admin' && req.body.password === 'password') {
+      res.send('You are logged in.')
+    } else {
+      res.send('Wrong username or password');
+    }
 
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 
 /**

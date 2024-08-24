@@ -16,8 +16,8 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--black);
   font-size: var(--font-size-base);
-  background-color: #FAF5EE;
-  background-image: url("/img/img-noise-361x370.png");
+  background-color: #f8f4e3;
+  /* background-image: url("/img/img-noise-361x370.png"); */
   margin: 0;
 }
 
@@ -68,18 +68,82 @@ img {
   margin: 0 auto;
   padding: 0 10px;
 }
+/* Styling for the main about container */
+.about {
+    text-align: center; /* Center-align the text and image */
+    margin-bottom: 20px; /* Space below the image */
+}
+
+
+/* Styling for the about-text section */
+.about-text {
+    font-family: Arial, sans-serif; /* Default font for the entire page */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    padding-top: 20px; /* Add space at the top of the page */
+    max-width: 800px; /* Maximum width for the text box */
+    margin: 0 auto; /* Center-align the text box */
+    padding: 20px; /* Padding inside the text box */
+    background-color: #946c46; /* White background for the text box */
+    border-style: solid ;
+    border-radius: 30px;           /* Rounded corners */
+    border-color: #1c1c1c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    color: #333; /* Dark color for the text */
+    line-height: 1.6; /* Increase line height for better readability */
+    font-size: 1.1em; /* Slightly larger font for readability */
+    
+}
+
+/* Specific styling for paragraphs inside about-text */
+.about-text p {
+    margin-bottom: 20px; /* Space between paragraphs */
+    text-align: justify; /* Justify the text for a clean look */
+    color: whitesmoke;
+    
+}
+
+/* Specific styling for the heading inside about */
+.about h1 {
+    font-size: 2em; /* Larger font size for the heading */
+    color: #333; /* Dark color for the heading */
+    margin-bottom: 10px; /* Space below the heading */
+}
 
 .main {
   padding: 20px 0;
 }
 
 /* Hero Section */
-.hero-image {
+
+/* Hero Section */
+.cover-image {
   max-height: 528px;
   filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
   overflow: hidden;
   border-radius: var(--border-radius);
 }
+
+
+
+/* styles.css */
+.my-image {
+  width: 300px; /* Adjust the width as needed */
+  height: auto; /* Maintain the aspect ratio */
+  margin-top: 20px; /* Space above the image */
+  margin-bottom: 40px; /* Increased space below the image */
+  
+  border-radius: 25px; /* Round the corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.my-image:hover {
+  transform: translateY(-20px); /* Uplift the image */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9); /* Increase shadow on hover */
+}
+
+
 
 
 /* Main Header */
@@ -338,3 +402,56 @@ img {
 .pagination:hover {
   color: var(--black);
 }
+
+.contact{
+    display: flex;
+    flex-direction: column;   
+}
+
+.admin-heading {
+  text-align: center; /* Centers the text horizontally */
+  font-family: 'Arial', sans-serif; /* Changes the font */
+  font-size: 35px; /* Adjusts the font size */
+  font-weight: bold; /* Makes the font bold */
+  margin: 40px ; /* Adds some space above and below the heading */
+  margin-bottom: 50px;
+  text-decoration: underline; 
+}
+
+/* Styling for the post title */
+.post-title {
+  font-size: 2.5em;             /* Large font size for emphasis */
+  color: black;                  /* Dark color for readability */
+  text-align: center;           /* Center the title */
+  margin-bottom: 20px;          /* Space between title and content */
+  text-transform: capitalize;   /* Capitalize the first letter of each word */
+  font-family: 'Arial', sans-serif; /* Font choice */
+  width: 100%;                  /* Ensure it takes up full width */
+}
+
+/* Styling for the post content */
+.post-content {
+  font-size: 1em;             /* Slightly larger than normal text */
+  line-height: 2;             /* Increased line height for readability */
+  color: black;                  /* Medium gray color */
+  padding: 20px;                /* Padding inside the content area */
+  text-align: justify;          /* Justify text for a clean look */
+  font-family: 'Georgia', serif; /* Font choice */
+  background-color: #f9f9f9;    /* Light background for content area */
+  border-style: solid ;
+  border-radius: 30px;           /* Rounded corners */
+  border-color: #1c1c1c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 0 auto;               /* Center the content block */
+  max-width: 1000px;             /* Limit the width of the content */       /* Break long words to avoid overflow */
+  white-space: pre-wrap; /* Preserves whitespace and wraps text when needed */
+  word-break: break-word; /* Forces long words to break and wrap */
+}
+
+
+
+/* Ensure that paragraphs within post content are spaced properly */
+.post-content p {
+  margin-bottom: 20px;          /* Add space between paragraphs */
+}
+
